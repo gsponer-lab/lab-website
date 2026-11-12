@@ -19,15 +19,16 @@ const GROUPS = [
       bio: 'Builds generative models for protein design, using diffusion and flow matching to design mini-protein binders, and uses large language models to improve protein design and interaction prediction. First author of the PNAS study on AlphaFold-Multimer and disordered regions. MSc in Artificial Intelligence, Sharif University of Technology.' }
   ]},
   { title: "Master's students", people: [
-    { name: 'Juan Pablo Iglesias Ahualli', role: "Master's student, Biochemistry & Molecular Biology", photo: '', email: '', linkedin: '',
-      bio: 'Came to UBC as an Erasmus exchange student and returned for graduate study. Co-author of the 2025 Communications Chemistry paper testing AlphaFold on proteins with large-scale allosteric transitions.' },
+    { name: 'Juan Pablo Iglesias Ahualli', role: "Master's student, Biochemistry & Molecular Biology", photo: 'img/juan-pablo-iglesias-ahualli.jpg', email: 'jpigles@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/juan-pablo-iglesias-ahualli',
+      bio: 'Uses AI to design disordered protein binders for cancer-related targets that are hard to drug with small molecules or folded binders. Came to UBC as an Erasmus exchange student and returned for graduate study. Co-author of the 2025 Communications Chemistry paper testing AlphaFold on proteins with large-scale allosteric transitions.' },
     { name: 'Sofie Hooft Toomey', role: "Master's student, Bioinformatics", photo: '', email: '', linkedin: '',
       bio: '' },
     { name: 'Ryan Kaffashi', role: "Master's student", photo: '', email: '', linkedin: '',
       bio: '' }
   ]},
   { title: 'Undergraduate students', people: [
-    { name: 'Varun Sharma', role: 'Undergraduate student', photo: '', email: '', linkedin: '', bio: '' }
+    { name: 'Varun Sharma', role: 'Undergraduate student, Biochemistry', photo: 'img/varun-sharma.jpg', email: 'vsharm21@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/varun-sharma-vvs/',
+      bio: 'Fifth-year BSc Biochemistry student at UBC. Tests how well protein–protein binding affinity predictors hold up when the input structure is itself a prediction, and studies how motion at a protein interface affects how tightly, and for how long, two proteins stay bound.' }
   ]}
 ];
 const PUBS = [
