@@ -1,4 +1,4 @@
-/* Home-page protein viewer: a designed binder (orange) bound to its target (blue), PDB 7JZU.
+/* Home-page protein viewer: a lab-designed binder (orange) bound to its target, TAZ1 (blue).
    Drag or use the arrow keys to rotate. There is no zoom or pan, and the mouse wheel scrolls the page.
    Data: js/complex-data.js (made by tools/prep_complex.py). Cartoon geometry: js/cartoon.js. Needs vendor/three. */
 (function () {
