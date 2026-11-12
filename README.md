@@ -14,9 +14,10 @@ Open http://localhost:8000.
 
 | File | What it holds |
 |---|---|
-| `index.html` | Page structure: header, the seven pages, footer, eagle and seeker animations |
+| `index.html` | Page structure: header with theme toggle, the pages (Home, Publications, People, Software, Databases, News), footer, people-page seeker |
 | `js/data.js` | **Content**: people, publications, software, databases |
-| `js/main.js` | Rendering, page switching, publication filter |
+| `js/main.js` | Rendering, page switching, publication filter (Preprints and Published papers), light/dark toggle |
+| `js/viewer.js` | The home-page 3D protein viewer (rotate only). Data in `js/complex-data.js`, made by `tools/prep_complex.py` from PDB 7JZU; cartoon drawing in `js/cartoon.js`; `vendor/three/` is three.js r128 (MIT) |
 | `css/style.css` | Colours, fonts and layout (all colours are tokens at the top) |
 
 ## Common edits
@@ -35,4 +36,4 @@ Make a branch, edit, open a pull request. Keep changes small and review each oth
 - Static files only; nothing runs on a server.
 - Fonts are loaded from Google Fonts. Self-host them if IT requires no third-party requests.
 - The old MLnet link pointed to a bare IP address and is left unlinked.
-- Draft content came from the old site and public profiles. Check the PrioNet funding line on the Join page.
+- Draft content came from the old site and public profiles.
