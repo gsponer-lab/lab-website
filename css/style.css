@@ -119,12 +119,6 @@ main { padding-block: 44px 72px; }
 .pub .au b { color: var(--ink); font-weight: 600; }
 .pub .j { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); margin-top: 3px; }
 .pub .rest[hidden] { display: none; }
-.pub.has-fig { display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 8px 24px; align-items: start; }
-.pub .fig { display: block; text-decoration: none; }
-.pub .fig img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 4px; }
-.pub .fig span { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); }
-.pub .fig:hover img { border-color: var(--accent); }
-@media (max-width: 640px) { .pub.has-fig { grid-template-columns: 1fr; } .pub .fig { max-width: 320px; } }
 .pub .more { font: inherit; font-family: var(--font-mono); font-size: 12px; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0 0 0 4px; text-decoration: underline; }
 .empty { color: var(--muted); padding: 20px 0; }
 
