@@ -11,7 +11,7 @@ const PI = {
 };
 const GROUPS = [
   { title: 'Research staff', people: [
-    { name: 'Jennifer M. Bui', role: 'Research Associate', photo: 'img/jennifer-bui.jpg', email: '', linkedin: '',
+    { name: 'Jennifer M. Bui', role: 'Research Associate', photo: 'img/jennifer-bui.jpg', email: '', linkedin: 'https://www.linkedin.com/in/jennifer-m-bui-phd-73065116a',
       bio: 'Computational chemist (PhD, UC San Diego, 2006; BS Physical Chemistry, UC Davis, 1998) with more than ten years of experience in protein design. Designs protein-based antigens and inhibitors with Rosetta and deep-learning structure prediction (RoseTTaFold, AlphaFold2), and studies protein structure, protein–protein interactions, dynamics and amyloids with molecular dynamics and free energy calculations. Also experienced in structure- and ligand-based drug design, from virtual screening and docking to deep-learning models of binding affinity, and in bioinformatics, statistics and programming (Python, C++, Fortran, CUDA).' },
   ]},
   { title: 'PhD students', people: [
