@@ -32,8 +32,7 @@ function authors(a) {
   if (l.length <= 8) return bold(a);
   return `${bold(l.slice(0,3).join(', '))}, <span class="rest" hidden>${bold(l.slice(3).join(', '))}</span><button class="more" type="button">+${l.length-3} more</button>`;
 }
-/* p[5], when present, is the paper's graphical abstract (from its open-access full text, CC BY-NC) */
-const pubItem = p => `<li class="pub${p[5] ? ' has-fig' : ''}"><div class="pub-text"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a><div class="au">${authors(p[1])}</div><div class="j">${esc(p[3])} · ${p[0]}</div></div>${p[5] ? `<a class="fig" href="${esc(p[4])}" target="_blank" rel="noopener"><img src="${esc(p[5])}" alt="Graphical abstract: ${esc(p[2])}" loading="lazy"><span>Graphical abstract · CC BY-NC</span></a>` : ''}</li>`;
+const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a><div class="au">${authors(p[1])}</div><div class="j">${esc(p[3])} · ${p[0]}</div></li>`;
 
 const RECENT = [0, 1, 2, 3, 4]; /* indices into PUBS shown on the home page */
 document.getElementById('latest-pubs').innerHTML = RECENT.map(i => pubItem(PUBS[i])).join('');
