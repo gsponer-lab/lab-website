@@ -24,8 +24,9 @@ Open http://localhost:8000.
 
 - **Add a person or photo:** edit `GROUPS` in `js/data.js`. Put photos in `img/` and set `photo: 'img/name.jpg'`. Empty `email`, `linkedin` or `bio` fields show a dashed placeholder.
 - **Add a publication:** add a row at the top of `PUBS` in `js/data.js`: `[year, authors, title, journal, url]`.
-- **Add a news item:** add a row to `NEWS` in `js/data.js`: `[year, title, text]`.
-- **Add software or a database:** edit `SW` or `DB` in `js/data.js`.
+- **Add a news post:** add an entry to `NEWS` in `js/data.js` with `date`, `title`, `summary` (shown in the list), `body` (full text, paragraphs separated by `\n`), and optionally `photo` (a file in `img/news/`; several, one per line, make a gallery), `caption` and `link`. Each post gets its own page at `#news/<title-as-a-slug>`.
+- **Add or edit a software tool:** edit its entry in `SW` in `js/data.js`: `name`, `summary` (the card text), `link` (the tool's own address), `note`, `body` (full description, paragraphs separated by `\n`), `links` (one `Label: https://address` per line) and optionally `photo` (a file in `img/software/`) and `caption`. Each tool gets its own page at `#software/<name-as-a-slug>`.
+- **Add or edit a database:** same as a software tool, in `DB` in `js/data.js`. Each one gets its own page at `#databases/<name-as-a-slug>`.
 
 ## Working together
 
