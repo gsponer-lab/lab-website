@@ -20,15 +20,15 @@ const GROUPS = [
   ]},
   { title: "Master's students", people: [
     { name: 'Juan Pablo Iglesias Ahualli', role: "Master's student, Biochemistry & Molecular Biology", photo: 'img/juan-pablo-iglesias-ahualli.jpg', email: 'jpigles@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/juan-pablo-iglesias-ahualli',
-      bio: 'I use AI to design disordered protein binders for cancer-related targets that are hard to drug with small molecules or folded binders. I came to UBC as an Erasmus exchange student and returned for graduate study. I am a co-author of the 2025 Communications Chemistry paper testing AlphaFold on proteins with large-scale allosteric transitions.' },
+      bio: 'I’m a Master’s student in the Gsponer Lab at UBC. I’m planning to transfer into the PhD program. My project uses AI to design disordered protein binders for cancer-related targets that are hard to drug with small molecules or folded binders.' },
     { name: 'Sofie Hooft Toomey', role: "Master's student, Bioinformatics", photo: 'img/sofie-hooft-toomey.jpg', email: 'htsofie@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/sofie-hooft-toomey-53b71b302/',
-      bio: 'I study how phosphorylation changes the structure and behaviour of proteins, and how these changes help explain why cells with the same DNA develop such different roles. I combine large biological datasets, computational workflows and AI-based protein structure prediction to move from correlations to the mechanisms behind health and disease.' },
-    { name: 'Ryan Kaffashi', role: "Master's student, Biochemistry & Molecular Biology", photo: 'img/ryan-kaffashi.jpg', email: '', linkedin: 'https://www.linkedin.com/in/ryan-kaffashi-b63b23323/',
-      bio: 'I am currently visiting Bruno Correia\'s Laboratory of Protein Design and Immunoengineering at EPFL through the Friedman Award for Scholars in Health. I combine machine learning, molecular modelling and experimental validation to design proteins that bind to and regulate calcium channels, with the aim of understanding the molecular interactions behind muscle contraction and cardiac function and building new tools to study them.' }
+      bio: 'I am a second year Master’s student in the Gsponer lab completing my master’s before attending medical school next year. I study how phosphorylation changes protein interactions and how these changes help explain why cells with the same DNA develop such different roles. I combine large biological datasets, computational workflows and AI-based protein structure prediction to understand phosphorylation’s impacts on tissue specific regulation.' },
+    { name: 'Ryan Kaffashi', role: "Master's student, Biochemistry & Molecular Biology", photo: 'img/ryan-kaffashi.jpg', email: 'rkaffash@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/ryan-kaffashi-b63b23323/',
+      bio: 'I’m an MSc student in the Gsponer Lab, where I work on the intrinsically disordered cytoplasmic regions of voltage-gated calcium channels. I design de novo binders against the CaV C-terminal tail to dissect the interactions that govern channel modulation, with structural and biophysical validation in collaboration with the Van Petegem Lab. In 2026 I will spend six months at EPFL on a competitively funded research stay.' }
   ]},
   { title: 'Undergraduate students', people: [
     { name: 'Varun Sharma', role: 'Undergraduate student, Biochemistry', photo: 'img/varun-sharma.jpg', email: 'vsharm21@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/varun-sharma-vvs/',
-      bio: 'I am a fifth-year BSc Biochemistry student at UBC. I test how well protein–protein binding affinity predictors hold up when the input structure is itself a prediction, and I study how motion at a protein interface affects how tightly, and for how long, two proteins stay bound.' }
+      bio: 'I’m a fifth-year BSc Biochemistry student at UBC. My project tests how well protein–protein binding affinity predictors hold up when the input structure is itself a prediction. I’m also studying how motion at a protein interface affects how tightly, and for how long, two proteins stay bound.' }
   ]}
 ];
 const PUBS = [
