@@ -33,7 +33,7 @@ function authors(a) {
   return `${bold(l.slice(0,3).join(', '))}, <span class="rest" hidden>${bold(l.slice(3).join(', '))}</span><button class="more" type="button">+${l.length-3} more</button>`;
 }
 const isPreprint = p => /preprint/i.test(p[3]);
-const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a>${isPreprint(p) ? ' <span class="preprint">Preprint, not yet published</span>' : ''}<div class="au" hidden>${authors(p[1])}</div><div class="j" hidden>${esc(p[3])} · ${p[0]}</div></li>`;
+const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a>${isPreprint(p) ? ' <span class="preprint">Preprint, not yet published</span>' : ''}<div class="au">${authors(p[1])}</div><div class="j">${esc(p[3])} · ${p[0]}</div></li>`;
 
 const RECENT = [0, 1, 2, 3, 4]; /* indices into PUBS shown on the home page */
 document.getElementById('latest-pubs').innerHTML = RECENT.map(i => pubItem(PUBS[i])).join('');
@@ -53,13 +53,19 @@ document.getElementById('pub-list').innerHTML = `<section class="pub-section">${
 
 /* software and databases: cards open their own page (#software/<slug>, #databases/<slug>) with the full description and links */
 const swLinks = t => t.links.split('\n').filter(Boolean).map(l => { const i = l.search(/:\s(?=https?:\/\/)/); return i < 0 ? null : [l.slice(0, i), l.slice(i + 2).trim()]; }).filter(Boolean);
-const entryCards = (list, base) => list.map(t => `<article class="card"><h3><a href="#${base}/${slug(t.name)}">${esc(t.name)}</a>${t.note === 'Retired' ? '<span class="pill">Retired</span>' : ''}</h3><p>${esc(t.summary)}</p>${t.note && t.note !== 'Retired' ? `<p><span class="todo">${esc(t.note)}</span></p>` : ''}<div class="links"><a href="#${base}/${slug(t.name)}">Details</a>${t.link ? `<a href="${esc(t.link)}" target="_blank" rel="noopener">Open ${base === 'software' ? 'the tool' : 'the database'}</a>` : ''}</div></article>`).join('');
+/* a tool's Link can hold one address, or several lines written "Label: https://address" (for example the original and the 2.0 version) */
+const openLinks = (t, base) => {
+  const multi = swLinks({ links: t.link || '' });
+  if (multi.length) return multi;
+  return t.link ? [[`Open ${base === 'software' ? 'the tool' : 'the database'}`, t.link]] : [];
+};
+const entryCards = (list, base) => list.map(t => `<article class="card"><h3><a href="#${base}/${slug(t.name)}">${esc(t.name)}</a>${t.note === 'Retired' ? '<span class="pill">Retired</span>' : ''}</h3><p>${esc(t.summary)}</p>${t.note && t.note !== 'Retired' ? `<p><span class="todo">${esc(t.note)}</span></p>` : ''}<div class="links"><a href="#${base}/${slug(t.name)}">Details</a>${openLinks(t, base).map(([a, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a>`).join('')}</div></article>`).join('');
 document.getElementById('sw-list').innerHTML = entryCards(SW, 'software');
 document.getElementById('db-list').innerHTML = entryCards(DB, 'databases');
 function renderEntry(list, view, back, backLabel, s) {
   const t = list.find(x => slug(x.name) === s); if (!t) return false;
   const links = swLinks(t);
-  document.getElementById(view).innerHTML = `<a class="post-back" href="#${back}">${backLabel}</a><article class="post"><h1>${esc(t.name)}${t.note === 'Retired' ? '<span class="pill">Retired</span>' : ''}</h1><p class="tool-sum">${esc(t.summary)}</p>${t.photo ? `<figure class="post-photo"><img src="${esc(t.photo)}" alt="${esc(t.caption || t.name)}">${t.caption ? `<figcaption>${esc(t.caption)}</figcaption>` : ''}</figure>` : ''}<div class="post-body">${t.body.split('\n').map(p => `<p${/^Cite:/.test(p) ? ' class="cite"' : ''}>${linkify(p)}</p>`).join('')}</div>${links.length ? `<h2 class="tool-h">Links</h2><ul class="tool-links">${links.map(([a, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a><span>${esc(u.replace(/^https?:\/\//, '').split('/')[0])}</span></li>`).join('')}</ul>` : ''}</article>`;
+  document.getElementById(view).innerHTML = `<a class="post-back" href="#${back}">${backLabel}</a><article class="post"><h1>${esc(t.name)}${t.note === 'Retired' ? '<span class="pill">Retired</span>' : ''}</h1><p class="tool-sum">${esc(t.summary)}</p>${openLinks(t, back).length ? `<p class="tool-open">${openLinks(t, back).map(([a, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a>`).join('')}</p>` : ''}${t.photo ? `<figure class="post-photo"><img src="${esc(t.photo)}" alt="${esc(t.caption || t.name)}">${t.caption ? `<figcaption>${esc(t.caption)}</figcaption>` : ''}</figure>` : ''}<div class="post-body">${t.body.split('\n').map(p => `<p${/^Cite:/.test(p) ? ' class="cite"' : ''}>${linkify(p)}</p>`).join('')}</div>${links.length ? `<h2 class="tool-h">Links</h2><ul class="tool-links">${links.map(([a, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)}</a><span>${esc(u.replace(/^https?:\/\//, '').split('/')[0])}</span></li>`).join('')}</ul>` : ''}</article>`;
   document.title = t.name + ' · Gsponer Lab';
   return true;
 }

@@ -277,5 +277,7 @@ body[data-page="home"] main.wrap, body[data-page="home"] .top .wrap { max-width:
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pub .preprint { color: #ff9d5c; } }
 :root[data-theme="dark"] .pub .preprint { color: #ff9d5c; }
 
-.pub .au[hidden], .pub .j[hidden] { display: none; }
 .pub .t + .preprint { margin-left: 8px; vertical-align: 2px; }
+
+.tool-open { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+.tool-open .btn { text-decoration: none; }
