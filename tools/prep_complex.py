@@ -1,10 +1,11 @@
 """Turn a two-chain complex (a target and a designed binder) into the cartoon data the home-page viewer draws.
 
-    ~/Desktop/protein-design-interactive-slides/.venv/bin/python tools/prep_complex.py 7jzu.cif js/complex-data.js \
+    ~/Desktop/protein-design-interactive-slides/.venv/bin/python tools/prep_complex.py model.cif js/complex-data.js \
         --target B --binder A
 
-Source structure: PDB 7JZU, SARS-CoV-2 spike RBD (chain B) bound to the de novo mini-protein binder LCB1
-(chain A); Cao et al., Science 370, 426 (2020). Download: https://files.rcsb.org/download/7JZU.cif
+Current example: an AlphaFold model of a designed IQ-domain binder (chain A) on its IQ-domain target (chain B).
+The raw model file is not kept in this repo; only the backbone trace the viewer needs is written out.
+Any two-chain complex works (PDB or mmCIF).
 
 Writes js/complex-data.js, which sets window.COMPLEX = {target, binder}. Each chain has, per residue, the Cα
 position (Å), the secondary structure (H helix, E strand, C other) and the carbonyl direction in the Cα frame,

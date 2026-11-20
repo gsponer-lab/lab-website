@@ -10,7 +10,7 @@ document.getElementById('pi').innerHTML = `<div class="pi">${photo(PI)}<div>
   <dl class="facts"><dt>Office</dt><dd>${esc(PI.office)}</dd><dt>Honours</dt><dd>${esc(PI.honours)}</dd></dl>
   ${links(PI)}</div></div>`;
 
-document.getElementById('groups').innerHTML = GROUPS.map(g => `<div class="group g${Math.min(g.people.length, 3)}"><h2>${esc(g.title)}</h2><div class="grid">${g.people.map(p => `<article class="person">${photo(p)}<div><h3>${esc(p.name)}</h3><div class="role">${esc(p.role)}</div></div>${p.bio ? `<p class="bio">${esc(p.bio)}</p><button class="readmore" type="button" aria-expanded="false" hidden>Read more</button>` : '<p><span class="todo">add a short description</span></p>'}${links(p)}</article>`).join('')}</div></div>`).join('');
+document.getElementById('groups').innerHTML = GROUPS.map(g => `<div class="group g${Math.min(g.people.length, 3)}"><h2>${esc(g.title)}</h2><div class="grid">${g.people.map(p => `<article class="person">${photo(p)}<div><h3>${esc(p.name)}</h3><div class="role">${esc(p.role)}</div></div>${p.bio ? `<p class="bio">${esc(p.bio)}</p><button class="readmore" type="button" aria-expanded="false" hidden>Read more</button>` : ''}${links(p)}</article>`).join('')}</div></div>`).join('');
 
 /* news text: blank-line-free paragraphs split on \n; bare web addresses become links */
 const linkify = s => esc(s).replace(/https?:\/\/[^\s<]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);

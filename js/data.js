@@ -32,7 +32,9 @@ const GROUPS = [
   ]},
   { title: 'Undergraduate students', people: [
     { name: 'Varun Sharma', role: 'Undergraduate student, Biochemistry', photo: 'img/varun-sharma.jpg', email: 'vsharm21@student.ubc.ca', linkedin: 'https://www.linkedin.com/in/varun-sharma-vvs/',
-      bio: 'I’m a fifth-year BSc Biochemistry student at UBC. My project tests how well protein–protein binding affinity predictors hold up when the input structure is itself a prediction. I’m also studying how motion at a protein interface affects how tightly, and for how long, two proteins stay bound.' }
+      bio: 'I’m a fifth-year BSc Biochemistry student at UBC. My project tests how well protein–protein binding affinity predictors hold up when the input structure is itself a prediction. I’m also studying how motion at a protein interface affects how tightly, and for how long, two proteins stay bound.' },
+    { name: 'Kevin Sandra', role: 'Undergraduate student', photo: '', email: '', linkedin: '', bio: '' },
+    { name: 'Jasmine Wong', role: 'Undergraduate student', photo: '', email: '', linkedin: '', bio: '' }
   ]}
 ];
 const PUBS = [
