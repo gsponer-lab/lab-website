@@ -32,7 +32,8 @@ function authors(a) {
   if (l.length <= 8) return bold(a);
   return `${bold(l.slice(0,3).join(', '))}, <span class="rest" hidden>${bold(l.slice(3).join(', '))}</span><button class="more" type="button">+${l.length-3} more</button>`;
 }
-const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a><div class="au">${authors(p[1])}</div><div class="j">${esc(p[3])} · ${p[0]}</div></li>`;
+const isPreprint = p => /preprint/i.test(p[3]);
+const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a>${isPreprint(p) ? ' <span class="preprint">Preprint, not yet published</span>' : ''}<div class="au" hidden>${authors(p[1])}</div><div class="j" hidden>${esc(p[3])} · ${p[0]}</div></li>`;
 
 const RECENT = [0, 1, 2, 3, 4]; /* indices into PUBS shown on the home page */
 document.getElementById('latest-pubs').innerHTML = RECENT.map(i => pubItem(PUBS[i])).join('');
@@ -46,12 +47,9 @@ function renderPost(s) {
   document.title = n.title + ' · Gsponer Lab';
   return true;
 }
-const isPreprint = p => /preprint/i.test(p[3]);
-const pubSection = (title, list) => {
-  const ys = [...new Set(list.map(p => p[0]))];
-  return `<section class="pub-section"><h2 class="sec-title">${esc(title)}<span class="n">${list.length}</span></h2>${ys.map(y => `<div class="year" data-y="${y}"><h3>${y}</h3><ul class="pubs">${list.filter(p => p[0] === y).map(pubItem).join('')}</ul></div>`).join('')}</section>`;
-};
-document.getElementById('pub-list').innerHTML = pubSection('Preprints', PUBS.filter(isPreprint)) + pubSection('Published papers', PUBS.filter(p => !isPreprint(p))) + '<p class="empty" id="pub-empty" hidden>No publications match.</p>';
+/* one list, newest first, grouped by year; preprints that are not yet published carry a label */
+const ysAll = [...new Set(PUBS.map(p => p[0]))];
+document.getElementById('pub-list').innerHTML = `<section class="pub-section">${ysAll.map(y => `<div class="year" data-y="${y}"><h3>${y}</h3><ul class="pubs">${PUBS.filter(p => p[0] === y).map(pubItem).join('')}</ul></div>`).join('')}</section><p class="empty" id="pub-empty" hidden>No publications match.</p>`;
 
 /* software and databases: cards open their own page (#software/<slug>, #databases/<slug>) with the full description and links */
 const swLinks = t => t.links.split('\n').filter(Boolean).map(l => { const i = l.search(/:\s(?=https?:\/\/)/); return i < 0 ? null : [l.slice(0, i), l.slice(i + 2).trim()]; }).filter(Boolean);

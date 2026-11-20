@@ -272,3 +272,10 @@ body[data-page="home"] main.wrap, body[data-page="home"] .top .wrap { max-width:
 .post-photo.multi .post-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .post-photo.multi .post-photos img { height: 100%; max-height: none; aspect-ratio: 1; object-fit: cover; }
 @media (max-width: 640px) { .post-photo.multi .post-photos { grid-template-columns: 1fr; } .post-photo.multi .post-photos img { aspect-ratio: auto; } }
+
+.pub .preprint { display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--binder-ink, #b04a0c); border: 1px solid currentColor; border-radius: 999px; padding: 0 8px; margin-right: 6px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pub .preprint { color: #ff9d5c; } }
+:root[data-theme="dark"] .pub .preprint { color: #ff9d5c; }
+
+.pub .au[hidden], .pub .j[hidden] { display: none; }
+.pub .t + .preprint { margin-left: 8px; vertical-align: 2px; }
