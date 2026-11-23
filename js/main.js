@@ -33,7 +33,7 @@ function authors(a) {
   return `${bold(l.slice(0,3).join(', '))}, <span class="rest" hidden>${bold(l.slice(3).join(', '))}</span><button class="more" type="button">+${l.length-3} more</button>`;
 }
 const isPreprint = p => /preprint/i.test(p[3]);
-const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a>${isPreprint(p) ? ' <span class="preprint">Preprint, not yet published</span>' : ''}<div class="au">${authors(p[1])}</div><div class="j">${esc(p[3])} · ${p[0]}</div></li>`;
+const pubItem = p => `<li class="pub"><a class="t" href="${esc(p[4])}" target="_blank" rel="noopener">${esc(p[2])}</a>${isPreprint(p) ? ' <span class="preprint">Preprint</span>' : ''}<div class="au">${authors(p[1])}</div><div class="j">${esc(p[3])} · ${p[0]}</div></li>`;
 
 const RECENT = [0, 1, 2, 3, 4]; /* indices into PUBS shown on the home page */
 document.getElementById('latest-pubs').innerHTML = RECENT.map(i => pubItem(PUBS[i])).join('');
